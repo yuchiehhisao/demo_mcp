@@ -1,12 +1,23 @@
 from openai import OpenAI
 import base64
+import sys
 import os
 import pandas as pd
 from mcp.server.fastmcp import FastMCP
 from dotenv import load_dotenv
+# 檢查並設置 OpenAI API 金鑰
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    print("Error: OPENAI_API_KEY environment variable is not set.", file=sys.stderr)
+    print("Please set it in your .env file or as a system environment variable.", file=sys.stderr)
 
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-client = OpenAI()
+# 初始化 OpenAI 客戶端
+try:
+    client = OpenAI(api_key=api_key)
+    print("OpenAI client initialized successfully.", file=sys.stderr)
+except Exception as e:
+    print(f"Error initializing OpenAI client: {e}", file=sys.stderr)
+
 load_dotenv()
 
 # open_ai_key = os.getenv("OPEN_AI_KEY")
