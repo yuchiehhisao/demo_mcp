@@ -1,0 +1,11 @@
+*__pycache__*
+.*/
+logs/
+data/
+*webserver*
+data.csv
+
+.env
+.config/
+temp
+.DS_Store

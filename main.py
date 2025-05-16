@@ -4,7 +4,6 @@ import os
 import pandas as pd
 from mcp.server.fastmcp import FastMCP
 from dotenv import load_dotenv
-from redshift_tool import ReshiftHandler
 
 os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 client = OpenAI()
