@@ -3,6 +3,7 @@
 logs/
 data/
 *webserver*
+data.csv
 
 .env
 .config/
